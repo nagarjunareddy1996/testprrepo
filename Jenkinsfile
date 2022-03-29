@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo BRANCH_NAME
                 echo CHANGE_ID
+                sh 'from feature branch'
             }
         }
     }
