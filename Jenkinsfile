@@ -4,10 +4,12 @@ pipeline {
     stages {
         stage('Main') {
             steps {
-                echo BRANCH_NAME
-                echo CHANGE_ID
-                echo CHANGE_BRANCH  
-                sh 'from feature branch'
+               sh """ 
+                    echo $env.BRANCH_NAME 
+                    echo $env.CHANGE_ID || true 
+                    echo $env.CHANGE_BRANCH || true 
+                    echo 'from feature branch'
+                """
             }
         }
     }
