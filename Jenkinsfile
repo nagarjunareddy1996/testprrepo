@@ -4,10 +4,8 @@ pipeline {
     stages {
         stage('Main') {
             steps {
-                sh """
-                    echo ${BRANCH_NAME}
-                    echo ${CHANGE_ID}
-                """
+                echo ${BRANCH_NAME}
+                echo ${CHANGE_ID}
             }
         }
     }
