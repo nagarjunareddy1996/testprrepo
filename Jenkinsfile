@@ -5,7 +5,7 @@ pipeline {
      
     stages {
         stage('Main') {
-            def BRANCH_NAME = "$env.BRANCH_NAME"
+            def BRANCH_NAME = $env.BRANCH_NAME
             def branch_parts =  "${BRANCH_NAME}".tokenize('/')
             steps {
                sh """ 
@@ -15,8 +15,8 @@ pipeline {
                     echo $env.CHANGE_ID || true 
                     echo $env.CHANGE_BRANCH || true 
                     */
-                    echo "$BRANCH_NAME"
-                    echo "$branch_parts"
+                    echo $BRANCH_NAME
+                    echo $branch_parts
                     echo 'from feature branch'
                 """
             }
