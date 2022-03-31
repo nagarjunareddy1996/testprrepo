@@ -8,7 +8,7 @@ pipeline {
      def branch_parts =  "${branch_name.split("/") ?: env.CHANGE_BRANCH.split("/")}"
     }
     stages {
-        stage('Main') {
+        stage('checkout') {
             steps {
                
                sh """ 
