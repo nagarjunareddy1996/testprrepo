@@ -1,7 +1,7 @@
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
     agent any
-    environment{
+    environment {
 
      def branch_name = env.BRANCH_NAME
      def branch_parts =  "${branch_name}".split("/")
