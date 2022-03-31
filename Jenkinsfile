@@ -4,8 +4,8 @@ pipeline {
     environment {
 
      def branch_name = "$env.BRANCH_NAME"
-     def change_branch = "$env.CHANGE_BRANCH"
-     def branch_parts =  "${branch_name.split("/") ?: change_branch.split("/")}"
+     // def change_branch = "$env.CHANGE_BRANCH"
+     def branch_parts =  "${branch_name.split("/") ?: env.CHANGE_BRANCH.split("/")}"
     }
     stages {
         stage('Main') {
