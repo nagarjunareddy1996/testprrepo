@@ -3,7 +3,7 @@ pipeline {
     agent any
     environment {
 
-     def branch_name = env.BRANCH_NAME
+     def branch_name = "$env.BRANCH_NAME"
      def branch_parts =  "${branch_name}".split("/")
     }
     stages {
