@@ -2,10 +2,11 @@
 pipeline {
     agent any
 
-     def BRANCH_NAME = "$env.BRANCH_NAME"
-     def branch_parts =  "${BRANCH_NAME}".tokenize('/')
+     
     stages {
         stage('Main') {
+            def BRANCH_NAME = "$env.BRANCH_NAME"
+            def branch_parts =  "${BRANCH_NAME}".tokenize('/')
             steps {
                sh """ 
                    /*
