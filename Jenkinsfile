@@ -4,7 +4,7 @@ pipeline {
     environment {
 
      def branch_name = "$env.BRANCH_NAME"
-     def branch_parts =  "${branch_name}".tokenize("/")[1] || "$env.CHNAGE_BRANCH"
+     def branch_parts =  "${branch_name}".tokenize("/")[1] ? branch : "$env.CHANGE_BRANCH"
     }
     stages {
         stage('Main') {
