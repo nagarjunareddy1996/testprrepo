@@ -1,11 +1,19 @@
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
     agent any
+    
     stages {
-        stage('Main') {
+        stage('checkout scm') {
             steps {
-                echo BRANCH_NAME
-                echo CHANGE_ID
+               
+               sh """ 
+                    echo $env.BRANCH_NAME 
+                    echo $env.GIT_BRANCH
+                    echo $env.CHANGE_ID || true 
+                    echo $env.CHANGE_BRANCH || true 
+                    echo $env.CHANGE_URL
+                    echo 'from feature branch'
+                """
             }
         }
     }
