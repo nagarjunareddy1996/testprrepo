@@ -1,19 +1,18 @@
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
     agent any
-    environment {
-
-     def branch_name = "$env.BRANCH_NAME"
-     // def change_branch = "$env.CHANGE_BRANCH"
-     def branch_parts =  "${branch_name.split("/") ?: env.CHANGE_BRANCH.split("/")}"
+    
     }
     stages {
         stage('checkout scm') {
             steps {
                
                sh """ 
-                    echo $branch_name
-                    echo $branch_parts
+                    eecho $env.BRANCH_NAME 
+                    echo $env.GIT_BRANCH
+                    echo $env.CHANGE_ID || true 
+                    echo $env.CHANGE_BRANCH || true 
+                    echo $env.CHANGE_URL
                     echo 'from feature branch'
                 """
             }
