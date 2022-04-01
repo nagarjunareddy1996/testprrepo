@@ -7,7 +7,7 @@ pipeline {
             steps {
                
                sh """ 
-                    eecho $env.BRANCH_NAME 
+                    echo $env.BRANCH_NAME 
                     echo $env.GIT_BRANCH
                     echo $env.CHANGE_ID || true 
                     echo $env.CHANGE_BRANCH || true 
